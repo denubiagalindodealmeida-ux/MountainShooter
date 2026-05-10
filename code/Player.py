@@ -7,6 +7,7 @@ from code.Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_UP, PLAYE
 from code.Entity import Entity
 from code.PlayerShot import PlayerShot
 
+import pygame
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
