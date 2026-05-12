@@ -158,3 +158,7 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
 
 def py():
     return None
+
+
+def C_():
+    return None
