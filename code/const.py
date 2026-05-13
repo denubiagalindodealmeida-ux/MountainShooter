@@ -11,6 +11,12 @@ MENU_OPTION = ('NEW_GAME 1P',
                'SCORE',
                'EXIT')
 
-# W
+#W
 WIN_WIDTH = 576
 WIN_HEIGHT = 324
+
+#Y
+COLOR_YELLOW = (255,255,0)
+
+
+
