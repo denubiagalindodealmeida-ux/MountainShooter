@@ -36,3 +36,7 @@ class Player(Entity):
                 return None
         else:
             return None
+
+
+class Play:
+    
