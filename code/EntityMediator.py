@@ -32,7 +32,7 @@ class EntityMediator:
         elif isinstance(ent1, EnemyShot) and isinstance(ent2, Player):
             valid_interaction = True
 
-        if valid_interaction:  # if valid_interaction == True:
+        if valid_interaction:
             if (ent1.rect.right >= ent2.rect.left and
                     ent1.rect.left <= ent2.rect.right and
                     ent1.rect.bottom >= ent2.rect.top and
@@ -64,8 +64,12 @@ class EntityMediator:
 
     @staticmethod
     def verify_health(entity_list: list[Entity]):
+        # 1. Primeiro distribuímos os pontos de quem morreu sem alterar a lista ainda
         for ent in entity_list:
-            if ent.health <= 0:
-                if isinstance(ent, Enemy):
-                    EntityMediator.__give_score(ent, entity_list)
-                entity_list.remove(ent)
+            if ent.health <= 0 and isinstance(ent, Enemy):
+                EntityMediator.__give_score(ent, entity_list)
+
+        # 2. Depois, recriamos a lista mantendo APENAS quem tem vida maior que 0
+        # Isso limpa a memória de forma segura sem travar o loop do Python!
+        entity_list[:] = [ent for ent in entity_list if ent.health > 0]
+        pass
